@@ -3,6 +3,7 @@ package com.example.buiqu.game2048_2;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -53,12 +54,15 @@ public class Data_Game {
     }
 
     //set color cho các ô số
+    //set color lỗi chỗ này
+    // khi n!=0 xuống ra index sai
+    // tao text thử n>=0 để k chạy khúc dưới
     public int setColor(int n) {
-        if (n == 0) {
-            return Color.WHITE;
+        if (n >=0) {
+            return Color.BLUE;
         } else {
             int i = (int) (Math.log(n) / Math.log(2));
-            return i = arrayColor[n - 1];
+            return i = arrayColor[i - 1];
         }
     }
 
@@ -107,7 +111,6 @@ public class Data_Game {
     }
 
     public void vuotTrai() {
-
         soO = 0;
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
