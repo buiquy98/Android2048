@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorWhite">#ffffff</color>
+    <array name="colorTiles">
+        <item>#EEE4DA</item>
+        <item>#ECE0C8</item>
+        <item>#F1B078</item>
+        <item>#E69055</item>
+        <item>#F87A61</item>
+        <item>#E65A37</item>
+        <item>#F3D76A</item>
+        <item>#E5BF30</item>
+        <item>#E4B714</item>
+        <item>#ECC400</item>
+        <item>#64D691</item>
+    </array>
+</resources>
