@@ -1,15 +1,11 @@
 package com.example.buiqu.game2048_2;
 
-import android.graphics.ImageFormat;
-import android.graphics.YuvImage;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     //một số biến có trong game
@@ -24,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setGridViewGamePlay();
+
         create();
         setData();
 
@@ -82,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                         break;
                 }
-                txvMAX.setText(""+Data_Game.getDataGame().getScore());
+                txvMAX.setText(""+Data_Game.getDataGame().getMax());
                 txvPoint.setText(""+Data_Game.getDataGame().getPoint());
                 return true;
             }

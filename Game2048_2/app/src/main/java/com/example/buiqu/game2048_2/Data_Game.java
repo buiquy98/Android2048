@@ -58,8 +58,8 @@ public class Data_Game {
     // khi n!=0 xuống ra index sai
     // tao text thử n>=0 để k chạy khúc dưới
     public int setColor(int n) {
-        if (n >=0) {
-            return Color.BLUE;
+        if (n ==0) {
+            return Color.WHITE;
         } else {
             int i = (int) (Math.log(n) / Math.log(2));
             return i = arrayColor[i - 1];
@@ -67,7 +67,8 @@ public class Data_Game {
     }
 
     //tạo số ngẫu nhiên
-    public void createRandomNumber() {
+    public void createRandomNumber()
+    {
         int n = 0;
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -76,26 +77,15 @@ public class Data_Game {
                 }
             }
         }
-        int so = 2;
-        if (n == 1) {
-            so = 1;
-        } else if (n == 0) {
+        int so = 1;
+        if (n == 0) {
             so = 0;
-        } else {
-            so = 1 + r.nextInt(2);
         }
         while (so != 0) {
-            int x = r.nextInt(4), y = r.nextInt(4);
+            int x = r.nextInt(2), y = r.nextInt(2);
             if (array[x][y] == 0) {
-                int k = r.nextInt(46) + 10;
-                if (k % 10 == 0) {
-                    array[x][y] = 4;
-                    this.score=score+4;
-                } else {
-                    array[x][y] = 2;
-                    this.score=score+2;
-                }
-                so--;
+                array[x][y] = 2;
+                --so;
             }
         }
     }
@@ -115,8 +105,8 @@ public class Data_Game {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 int h = array[i][j];
-                if (h == 0) {
-
+                if (h == 0)
+                {
                     continue;
                 } else {
                     int st = j + 1;
@@ -147,16 +137,17 @@ public class Data_Game {
                             continue;
                         } else {
                             array[i][j] = array[i][k];
+                            this.point+=(int) array[i][k];
                             array[i][k] = 0;
                             break;
                         }
                     }
                 }
-
             }
         }
         createRandomNumber();
         setArray_To_mangGame();
+
     }
 
     public void vuotPhai() {
@@ -196,6 +187,7 @@ public class Data_Game {
                             continue;
                         } else {
                             array[i][j] = array[i][k];
+                            this.point+=(int) array[i][k];
                             array[i][k] = 0;
                             break;
                         }
@@ -207,6 +199,7 @@ public class Data_Game {
 
         createRandomNumber();
         setArray_To_mangGame();
+
     }
 
     public void vuotLen() {
@@ -246,17 +239,20 @@ public class Data_Game {
                             continue;
                         } else {
                             array[j][i] = array[k][i];
+                            this.point+=(int) array[k][i];
                             array[k][i] = 0;
                             break;
                         }
                     }
                 }
+
             }
         }
 
 
         createRandomNumber();
         setArray_To_mangGame();
+
     }
 
     public void vuotXuong() {
@@ -297,29 +293,36 @@ public class Data_Game {
                             continue;
                         } else {
                             array[j][i] = array[k][i];
+                            this.point+=(int) array[k][i];
                             array[k][i] = 0;
                             break;
                         }
                     }
                 }
+
             }
         }
 
         createRandomNumber();
         setArray_To_mangGame();
+
     }
 
     //POINT
-    public void setPoint(int point)
+    public int setPoint()
     {
-        this.point=point;
+        return point;
+
     }
 
 
-    public int getPoint(){return point;}
+    public int getPoint()
+    {
+        return this.point;
+    }
 
     //MAX
-    public int getScore() {
+    public int getMax() {
         this.score=0;
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -333,8 +336,8 @@ public class Data_Game {
         }
         return score;
     }
-    public void setScore(int score) {
-        score = score;
+    public void setMax(int score) {
+        this.score = score;
     }
 
 
