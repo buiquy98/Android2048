@@ -82,10 +82,15 @@ public class Data_Game {
             so = 0;
         }
         while (so != 0) {
-            int x = r.nextInt(2), y = r.nextInt(2);
+            int x = r.nextInt(4), y = r.nextInt(4);
             if (array[x][y] == 0) {
-                array[x][y] = 2;
-                --so;
+                int k = r.nextInt(46) + 10;
+                if (k % 10 == 0) {
+                    array[x][y] = 4;
+                } else {
+                    array[x][y] = 2;
+                }
+                so--;
             }
         }
     }
@@ -137,7 +142,6 @@ public class Data_Game {
                             continue;
                         } else {
                             array[i][j] = array[i][k];
-                            this.point+=(int) array[i][k];
                             array[i][k] = 0;
                             break;
                         }
@@ -187,7 +191,6 @@ public class Data_Game {
                             continue;
                         } else {
                             array[i][j] = array[i][k];
-                            this.point+=(int) array[i][k];
                             array[i][k] = 0;
                             break;
                         }
@@ -239,7 +242,6 @@ public class Data_Game {
                             continue;
                         } else {
                             array[j][i] = array[k][i];
-                            this.point+=(int) array[k][i];
                             array[k][i] = 0;
                             break;
                         }
@@ -293,7 +295,6 @@ public class Data_Game {
                             continue;
                         } else {
                             array[j][i] = array[k][i];
-                            this.point+=(int) array[k][i];
                             array[k][i] = 0;
                             break;
                         }
